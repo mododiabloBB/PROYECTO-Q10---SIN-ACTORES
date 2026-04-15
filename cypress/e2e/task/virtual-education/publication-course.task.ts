@@ -39,8 +39,4 @@ export class PublicationCourseTask {
             }
         })
     }
-
-    static statusCourse() {
-        ///  ERROR - VALIDAR QUESTION PARA QUE RETORNE LA INFO
-    }
 }

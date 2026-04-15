@@ -1,7 +1,5 @@
-import dataCourse from "@fixtures/virtual-education/course-management.json"
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { ResourceManagementTask } from '@task/virtual-education/resource-management.task'
-import { TableAction } from '@action/common/table.action'
 import { CreatedResourceAssertion } from '@assertion/virtual-education/resource-management.assertion'
 import { ModalAction } from '@action/common/modal.action'
 

@@ -6,6 +6,6 @@ export class MenuAction {
         cy.visit("/");
         cy.get(MenuUI.navMenu).contains(option).click({ force: true })
         // Pediende validar si es necesario cambiar por una petición
-        cy.get(MenuUI.generalDiv).should('exist')
+        cy.get(MenuUI.spacePage).should('exist')
     }
 }

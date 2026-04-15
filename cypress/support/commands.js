@@ -24,15 +24,23 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (institucionKey, tipoUsuario) => {
+
+// TENER PRESENTE QUE LA INTERFAS DE NUESTRO LOGIN ESTA EN "support/index.js"
+// TENER PRESENTE QUE LA INTERFAS DE NUESTRO LOGIN ESTA EN "support/index.js"
+// TENER PRESENTE QUE LA INTERFAS DE NUESTRO LOGIN ESTA EN "support/index.js"
+// TENER PRESENTE QUE LA INTERFAS DE NUESTRO LOGIN ESTA EN "support/index.js"
+// TENER PRESENTE QUE LA INTERFAS DE NUESTRO LOGIN ESTA EN "support/index.js"
+Cypress.Commands.add('login', (tipoUsuario) => {
+
+    const institucionKey = Cypress.env('institucion')
 
     // Guardamos el json de instituciones en nuestro wrap
     cy.fixture('login/instituciones').then((instituciones) => {
         // Filtramos los datos de la institución en base al nombre enviado
         const institucion = instituciones[institucionKey];
         const { aplentId } = institucion;
-        const credenciales = institucion[tipoUsuario]
-        const {usuario, contrasenia} = credenciales
+        const credenciales = institucion.usuarios[tipoUsuario]
+        const { usuario, contrasenia } = credenciales
 
         // Se construye la URL de la base de datos
         const loginUrl = `login?ReturnUrl=%2F&aplentId=${aplentId}`;

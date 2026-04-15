@@ -1,7 +1,7 @@
 {
     "ordenesPago": {
         "nombre": "Ordenes pago",
-        "aplentId": "bce94d05-976b-43fd-a0dd-db2fbee2f2c8",
+        "aplentId": "bcc94d05-976b-43fd-a0dd-db2fbee2f2c8",
         "modeloAcademico": 2,
         "modeloFinanciero": 2,
         "token": "...",
@@ -11,8 +11,8 @@
                 "contrasenia": "0000"
             },
             "estudiante": {
-                "usuario": "190999000",
-                "contrasenia": "190999000"
+                "usuario": "1652465",
+                "contrasenia": "1652465"
             }
         }
     }

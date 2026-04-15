@@ -1,7 +1,7 @@
 Feature: Gestion de recursos en los cursos virtuales
 
     Background: Login y busqueda de curso
-        Given El usuario ha iniciado sesión en el sistema correctamente
+        Given el usuario "administrador" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
         And El usuario busca el curso virtual "nameCourseResource"
         And El usuario ingresar al curso virtual "nameCourseResource" pulsando la acción "Ingresar al curso"

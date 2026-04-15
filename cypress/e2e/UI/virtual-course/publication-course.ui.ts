@@ -5,4 +5,7 @@ export class PublicationCourseUI {
     static loaderContentCourse = '#section-body .fa-spinner'
     static settingsLabel = '#load-container table .edv-td-ajustesConfiguracion label'
     static switchPublication = '.bootstrap-switch'
+    static switchOn = 'bootstrap-switch-on'
+    static switchOff = 'bootstrap-switch-off'
+    static courseVisualitatiobStudent = '.tarjeta-curso .text-truncate'
 }

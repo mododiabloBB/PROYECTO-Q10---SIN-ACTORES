@@ -1,6 +1,7 @@
 import { AttrVirtualEducationQuestion } from "@questions/virtual-education/attr-virtual-education.question"
 import { AttrQuestion } from '@questions/common/attr.question'
 import { PublicationCourseUI } from "@ui/virtual-course/publication-course.ui"
+import { VisibleAssertion } from "@assertion/common/visible.assertion"
 
 export class PublicationManagementAssertion {
 
@@ -10,13 +11,17 @@ export class PublicationManagementAssertion {
 
     static shouldBePublished() {
         AttrQuestion.takeClass(PublicationCourseUI.switchPublication).then(($switch) => {
-            cy.wrap($switch).should('include', 'bootstrap-switch-on')
+            cy.wrap($switch).should('include', PublicationCourseUI.switchOn)
         })
     }
 
     static shouldBeUnpublished() {
         AttrQuestion.takeClass(PublicationCourseUI.switchPublication).then(($switch) => {
-            cy.wrap($switch).should('include', 'bootstrap-switch-off')
+            cy.wrap($switch).should('include', PublicationCourseUI.switchOff)
         })
+    }
+
+    static validateCourseStudent() {
+        VisibleAssertion.shouldBeVisible(PublicationCourseUI.courseVisualitatiobStudent)
     }
 }

@@ -26,10 +26,12 @@ export default defineConfig({
 
             // Make sure to return the config object as it might have been modified by the plugin.
             return config;
-        },
-        // Ruta de los steps, esto debe definirse ya que la ruta por defecto es en support, pero al sacarla de esta el cucumber no sabe cual sería la ruta
-        env: {
-            stepDefinitions: "cypress/e2e/step/**/*.{js,ts}"
         }
+    },
+    // Tener presente que la variables env del config NO pueden ir dentro del nodo e2e
+    env: {
+        // Ruta de los steps, esto debe definirse ya que la ruta por defecto es en support, pero al sacarla de esta el cucumber no sabe cual sería la ruta
+        stepDefinitions: "cypress/e2e/step/**/*.{js,ts}",
+        institucion: 'ordenesPago' // Se usa esta institución como institución de pruebas de manera local
     }
 });
