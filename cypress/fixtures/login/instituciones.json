@@ -2,8 +2,6 @@
     "ordenesPago": {
         "nombre": "Ordenes pago",
         "aplentId": "bcc94d05-976b-43fd-a0dd-db2fbee2f2c8",
-        "modeloAcademico": 2,
-        "modeloFinanciero": 2,
         "token": "...",
         "usuarios": {
             "administrador": {
@@ -13,6 +11,66 @@
             "estudiante": {
                 "usuario": "1652465",
                 "contrasenia": "1652465"
+            }
+        }
+    },
+    "pensiones": {
+        "nombre": "Colegios",
+        "aplentId": "541d0015-524f-49d7-9d5f-bfd20ba39473",
+        "token": "...",
+        "usuarios": {
+            "administrador": {
+                "usuario": "automatizacion@yopmail.com",
+                "contrasenia": "0000"
+            },
+            "estudiante": {
+                "usuario": "0",
+                "contrasenia": "0"
+            }
+        }
+    },
+    "facturas": {
+        "nombre": "Facturas",
+        "aplentId": "d5bd4525-bc99-4b1b-8f5e-2639335495b2",
+        "token": "...",
+        "usuarios": {
+            "administrador": {
+                "usuario": "automatizacion@yopmail.com",
+                "contrasenia": "0000"
+            },
+            "estudiante": {
+                "usuario": "0",
+                "contrasenia": "0"
+            }
+        }
+    },
+    "pagosRegularesPeru": {
+        "nombre": "Perú superior (modular)",
+        "aplentId": "6156f3fc-d509-41ce-b779-f2b775adbfb2",
+        "token": "...",
+        "usuarios": {
+            "administrador": {
+                "usuario": "automatizacion@yopmail.com",
+                "contrasenia": "0000"
+            },
+            "estudiante": {
+                "usuario": "0",
+                "contrasenia": "0"
+            }
+        }
+    },
+    "competencias": {
+        "nombre": "Competencias",
+        "aplentId": "18739616-ff14-4fb2-b917-ff0f749c482c",
+        "token": "...",
+        "usuarios": {
+            "administrador": {
+                "usuario": "automatizacion@yopmail.com",
+                "contrasenia": "0000"
+            },
+            "estudiante": {
+                "usuario": "0",
+                "contrasenia": "0"
             }
         }
     }

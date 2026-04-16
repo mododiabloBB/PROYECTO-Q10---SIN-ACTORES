@@ -4,6 +4,8 @@ import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-prepro
 import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
 
 export default defineConfig({
+    // cuando se quiera correr ejecutar de manera local en el cloud, se debe poner el comando "npx cypress run --record --key a06f6b67-0432-4531-afce-47ad88dfc4ad"
+    projectId: "bay28j",
     e2e: {
         baseUrl: "https://site6.q10.com/",
         defaultCommandTimeout: 30000,
