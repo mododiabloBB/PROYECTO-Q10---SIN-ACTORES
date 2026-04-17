@@ -7,5 +7,4 @@ export class PublicationCourseUI {
     static switchPublication = '.bootstrap-switch'
     static switchOn = 'bootstrap-switch-on'
     static switchOff = 'bootstrap-switch-off'
-    static courseVisualitatiobStudent = '.tarjeta-curso .text-truncate'
 }

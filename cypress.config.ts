@@ -9,6 +9,7 @@ export default defineConfig({
     e2e: {
         baseUrl: "https://site6.q10.com/",
         defaultCommandTimeout: 30000,
+        requestTimeout: 15000,
         viewportWidth: 1980,
         viewportHeight: 1020,
         specPattern: "**/*.feature",

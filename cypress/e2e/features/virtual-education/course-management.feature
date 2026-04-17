@@ -1,7 +1,7 @@
 Feature: Gestión de creación de cursos virtuales
 
     Background: Login y busqueda de curso
-        Given el usuario "administrador" ha iniciado sesión
+        Given El usuario "administrador" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
         And El usuario busca el curso virtual "nameCourse"
 

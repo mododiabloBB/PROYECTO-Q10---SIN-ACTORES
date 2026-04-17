@@ -3,21 +3,19 @@
     "target": "ES6",
     "lib": ["ES6", "DOM"],
     "types": ["cypress", "node"],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "strict": false,
-    //se usa el baseURL para que se sepa desde donde ubicar los paths
-    "baseUrl": "./cypress",
-    //rutas personalizadas de paths
-    "paths": {
-      "@action/*": ["e2e/action/*"],
-      "@task/*": ["e2e/task/*"],
-      "@ui/*": ["e2e/UI/*"],
-      "@questions/*": ["e2e/question/*"],
-      "@assertion/*": ["e2e/assertion/*"],
-      "@fixtures/*": ["fixtures/*"]
-    }
+      "paths": {
+        "@task/*": ["./cypress/e2e/task/*"],
+        "@ui/*": ["./cypress/e2e/UI/*"],
+        "@questions/*": ["./cypress/e2e/question/*"],
+        "@assertion/*": ["./cypress/e2e/assertion/*"],
+        "@fixtures/*": ["./cypress/fixtures/*"],
+        "@action/*": ["./cypress/e2e/action/*"],
+      }
   },
   "include": [
     "cypress/**/*.ts",
