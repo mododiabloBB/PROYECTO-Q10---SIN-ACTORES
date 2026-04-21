@@ -14,5 +14,3 @@ Feature: Gestión de completitud de recursos como estudiante
             | Tarea automatizacion pendiente        |
             | Foro automatizacion pendiente         |
             | Cuestionario automatizacion pendiente |
-
-

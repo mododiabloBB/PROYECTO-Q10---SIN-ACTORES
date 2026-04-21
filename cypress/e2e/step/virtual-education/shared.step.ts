@@ -1,10 +1,11 @@
 import dataCourse from "@fixtures/virtual-education/course-management.json"
 import { When } from "@badeball/cypress-cucumber-preprocessor"
-import { CreateVirtualCourseUI } from "@ui/virtual-course/virtual-course.ui"
+import { SharedUI } from "@ui/virtual-course/shared-ui"
 import { TableAction } from '@action/common/table.action'
 import { ResourceManagementTask } from '@task/virtual-education/resource-management.task'
-import { VisibleAssertion } from "@assertion/common/visible.assertion"
 import { PublicationCourseTask } from "@task/virtual-education/publication-course.task"
+import { StudentResourceManagement } from "@task/virtual-education/student-resource-management.task"
+import { VisibleAssertion } from "@assertion/common/visible.assertion"
 
 // Estos se usa en la ruta '/virtual-education/course-management.feature'
 When('El usuario busca el curso virtual {string}', (course: string) => {
@@ -14,7 +15,7 @@ When('El usuario busca el curso virtual {string}', (course: string) => {
 
 When('El usuario ingresar al curso virtual {string} pulsando la acción {string}', (course: string, action: string) => {
     TableAction.clickAction(dataCourse[course], action)
-    VisibleAssertion.shouldBeVisible(CreateVirtualCourseUI.titleVirtualCourse)
+    VisibleAssertion.shouldBeVisible(SharedUI.titleVirtualCourse)
 })
 
 // Este se usa en la ruta '/virtual-education/resource-management.feature'
@@ -34,5 +35,5 @@ When('El usuario ingresa a los ajustes del curso virtual', () => {
 
 // Este se usa en la ruta '/virtual-education/student-resource-managemente.feature'
 When('El usuario ingresar al curso virtual {string} pulsando sobre este', (course: string) => {
-    
+    StudentResourceManagement.goInCourse(course)
 })
