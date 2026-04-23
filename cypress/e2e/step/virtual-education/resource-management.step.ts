@@ -1,5 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { ResourceManagementTask } from '@task/virtual-education/resource-management.task'
+import { SharedTask } from "@task/virtual-education/shared.task"
 import { CreatedResourceAssertion } from '@assertion/virtual-education/resource-management.assertion'
 import { ModalAction } from '@action/common/modal.action'
 
@@ -19,7 +20,7 @@ When('El usuario asigna el título {string} al recurso', function (title: string
 
 When('El usuario asigna la descripción {string} al recurso', function (description: string) {
     this.resourceDescription = description
-    ResourceManagementTask.typeDescriptionResource(description)
+    SharedTask.typeTextAreaResource(description)
 })
 
 When('El usuario configura las opciones del recurso', () => {
@@ -45,14 +46,14 @@ When('El usuario modifica el titulo del recurso asignando {string}', function (t
 
 When('El usuario modifica la descripción del recurso asignando {string}', function (descriptionEdition: string) {
     this.descriptionEdition = descriptionEdition
-    ResourceManagementTask.typeDescriptionResource(descriptionEdition)
+    SharedTask.typeTextAreaResource(descriptionEdition)
 })
 
 When('El usuario presionar el boton para guardar las modificaciones del recurso', () => {
     ResourceManagementTask.createResource()
 })
 
-Then('Las modificaciones del recurso se guardan de forma correcta en el recurso', function() {
+Then('Las modificaciones del recurso se guardan de forma correcta en el recurso', function () {
     const titleEdition = this.titleEdition
     const descriptionEdition = this.descriptionEdition
 

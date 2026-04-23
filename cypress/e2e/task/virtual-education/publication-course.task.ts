@@ -1,10 +1,11 @@
+import { PublicationCourseUI } from "@ui/virtual-course/publication-course.ui"
+import { CreateVirtualCourseUI } from "@ui/virtual-course/virtual-course.ui"
+import { SharedUI } from "@ui/virtual-course/shared-ui"
 import { AttrVirtualEducationQuestion } from "@questions/virtual-education/attr-virtual-education.question"
 import { PublicationManagementAssertion } from "@assertion/virtual-education/publication-management.assertion"
 import { VisibleAssertion } from "@assertion/common/visible.assertion"
 import { TextAssertion } from "@assertion/common/text.assertion"
 import { ClickAction } from "@action/click.action"
-import { PublicationCourseUI } from "@ui/virtual-course/publication-course.ui"
-import { CreateVirtualCourseUI } from "@ui/virtual-course/virtual-course.ui"
 import { AttrQuestion } from "@questions/common/attr.question"
 
 
@@ -14,7 +15,7 @@ export class PublicationCourseTask {
     static goToSettings() {
         this.expandSideNavIfNeeded()
         this.shouldBeOnSettingsPage()
-        TextAssertion.haveText(CreateVirtualCourseUI.titleVirtualCourse, "Ajustes")
+        TextAssertion.haveText(SharedUI.titleVirtualCourse, "Ajustes")
     }
 
     private static expandSideNavIfNeeded() {

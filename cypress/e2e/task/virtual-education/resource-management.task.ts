@@ -1,5 +1,6 @@
 import { ClickAction } from '@action/click.action'
 import { ResourceManagementUI } from '@ui/virtual-course/resource.ui'
+import { SharedUI } from "@ui/virtual-course/shared-ui"
 import { VisibleAssertion } from '@assertion/common/visible.assertion'
 import { TextAssertion } from '@assertion/common/text.assertion'
 import { TypeAction } from '@action/type.action'
@@ -23,12 +24,6 @@ export class ResourceManagementTask {
         TextAssertion.haveValue(ResourceManagementUI.titleResource, value)
     }
 
-    static typeDescriptionResource(text: string) {
-        ClickAction.clickElement(ResourceManagementUI.textAreaResource)
-        TypeAction.typeIn(ResourceManagementUI.textAreaFocusResource, text)
-        TextAssertion.haveText(ResourceManagementUI.textAreaP, text)
-    }
-
     static takeOffRestriction() {
         cy.get(ResourceManagementUI.restrictionOn).each(($switch) => {
             ClickAction.clickElementByEq($switch, 0)
@@ -50,7 +45,7 @@ export class ResourceManagementTask {
             case "Editar":
                 ClickAction.clickElementByText(ResourceManagementUI.btnEditResource, action)
                 VisibleAssertion.shouldBeVisible(ResourceManagementUI.titleResource)
-                VisibleAssertion.shouldBeVisible(ResourceManagementUI.textAreaResource)
+                VisibleAssertion.shouldBeVisible(SharedUI.textAreaResource)
                 break
 
             case "Eliminar":
