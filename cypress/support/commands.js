@@ -39,8 +39,8 @@ Cypress.Commands.add('login', (tipoUsuario) => {
         // Filtramos los datos de la institución en base al nombre enviado
         const institucion = instituciones[institucionKey];
         const { aplentId } = institucion;
-        const credenciales = institucion.usuarios[tipoUsuario]
-        const { usuario, contrasenia } = credenciales
+        const usuarioLogin = institucion.usuarios[tipoUsuario]
+        const { usuario, contrasenia } = usuarioLogin
 
         // Se construye la URL de la base de datos
         const loginUrl = `login?ReturnUrl=%2F&aplentId=${aplentId}`;

@@ -1,10 +1,10 @@
-import { ClickAction } from '@action/click.action'
+import { ClickAction } from '@action/common/click.action'
 import { ResourceManagementUI } from '@ui/virtual-course/resource.ui'
 import { SharedUI } from "@ui/virtual-course/shared-ui"
 import { VisibleAssertion } from '@assertion/common/visible.assertion'
 import { TextAssertion } from '@assertion/common/text.assertion'
-import { TypeAction } from '@action/type.action'
-import { WaitAction } from '@action/request.action'
+import { TypeAction } from '@action/common/type.action'
+import { WaitAction } from '@action/common/request.action'
 
 export class ResourceManagementTask {
 

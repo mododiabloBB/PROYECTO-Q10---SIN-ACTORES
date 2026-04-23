@@ -5,7 +5,7 @@ import { AttrVirtualEducationQuestion } from "@questions/virtual-education/attr-
 import { PublicationManagementAssertion } from "@assertion/virtual-education/publication-management.assertion"
 import { VisibleAssertion } from "@assertion/common/visible.assertion"
 import { TextAssertion } from "@assertion/common/text.assertion"
-import { ClickAction } from "@action/click.action"
+import { ClickAction } from "@action/common/click.action"
 import { AttrQuestion } from "@questions/common/attr.question"
 
 

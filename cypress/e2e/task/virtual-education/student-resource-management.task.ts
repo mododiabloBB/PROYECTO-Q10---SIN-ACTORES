@@ -1,10 +1,12 @@
 import dataCourse from "@fixtures/virtual-education/course-management.json"
 import { SharedUI } from "@ui/virtual-course/shared-ui"
 import { StudentCourseUI } from '@ui/virtual-course/student-course.ui'
-import { ClickAction } from '@action/click.action'
+import { ClickAction } from '@action/common/click.action'
+import { answerQuestionsAction } from '@action/virtual-education/answer-questions.action'
 import { SharedTask } from "@task/virtual-education/shared.task"
 import { VisibleAssertion } from '@assertion/common/visible.assertion'
 import { TextAssertion } from '@assertion/common/text.assertion'
+import { InteractionVirtualEducationQuestion } from '@questions/virtual-education/interaction-virtual-education.questions'
 
 export class StudentResourceManagement {
 
@@ -18,26 +20,37 @@ export class StudentResourceManagement {
         TextAssertion.haveText(SharedUI.titleVirtualCourse, resource)
     }
 
-    
+
     private static completeForum() {
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
         ClickAction.clickElementByText(StudentCourseUI.btnSendForum, 'Agregar comentario')
     }
-    
+
     private static completeTask() {
         ClickAction.clickElementByText(StudentCourseUI.btnTaskComplete, 'Responder tarea')
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
         ClickAction.clickElementByText(StudentCourseUI.btnSendTask, 'Aceptar')
     }
 
-    private static answerQuestions (questionType: string) {
+    private static answerQuestionanaire(questionType: string) {
         this.goInQuestionnaire()
-        
-        switch (questionType) {
-            case 'Única respuesta':
+        // ejecutamos el callback del metodo
+        InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type, index) => {
+            switch (type) {
+                case 'Única respuesta':
+                    answerQuestionsAction.AnswerSingleChoice($element)
+                case 'Múltiple respuesta':
 
-        }
+                case 'Asociación':
+
+                case 'Rellene los espacios':
+
+                case 'Descriptiva':
+            }
+        })
     }
+
+
 
     private static goInQuestionnaire() {
         //Ingresar al cuestionario

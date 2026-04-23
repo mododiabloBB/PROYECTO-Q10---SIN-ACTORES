@@ -9,6 +9,6 @@ export class StudentCourseUI {
     static btnStartQuestionnaire = '#inicializar_cuestionario'
     // Preguntas de cuestionarios
     static questionList = '#responder_cuestionario'
-    // Tipo de pregunta
-    static questionType = '#responder_cuestionario .card-header .card-span'
+    static cardQuestions = '#responder_cuestionario .card-preguntas'
+    static questionType = '.card-header .card-span'
 }
