@@ -38,19 +38,17 @@ export class StudentResourceManagement {
         InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type, index) => {
             switch (type) {
                 case 'Única respuesta':
-                    answerQuestionsAction.AnswerSingleChoice($element)
+                    answerQuestionsAction.answerSingleChoice($element)
                 case 'Múltiple respuesta':
-
+                    answerQuestionsAction.answerMultipleChoices($element)
                 case 'Asociación':
-
+                    
                 case 'Rellene los espacios':
 
                 case 'Descriptiva':
             }
         })
     }
-
-
 
     private static goInQuestionnaire() {
         //Ingresar al cuestionario

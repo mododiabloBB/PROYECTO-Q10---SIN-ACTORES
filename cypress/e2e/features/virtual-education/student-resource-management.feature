@@ -10,7 +10,7 @@ Feature: Gestión de completitud de recursos como estudiante
 
         Examples:
 
-            | recursoPendiente                      |
-            | Tarea automatizacion pendiente        |
-            | Foro automatizacion pendiente         |
-            | Cuestionario automatizacion pendiente |
+            | recursoPendiente            |
+            | TAREA AUTOMATIZACION        |
+            | FORO AUTOMATIZACION         |
+            | CUESTIONARIO AUTOMATIZACION |
