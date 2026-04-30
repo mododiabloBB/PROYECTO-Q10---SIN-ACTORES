@@ -42,7 +42,7 @@ export class StudentResourceManagement {
                 case 'Múltiple respuesta':
                     answerQuestionsAction.answerMultipleChoices($element)
                 case 'Asociación':
-                    
+                    answerQuestionsAction.answerMultipleChoices($element)
                 case 'Rellene los espacios':
 
                 case 'Descriptiva':

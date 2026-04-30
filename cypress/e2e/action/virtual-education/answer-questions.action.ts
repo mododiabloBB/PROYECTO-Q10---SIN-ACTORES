@@ -44,4 +44,8 @@ export class answerQuestionsAction {
         })
     }
 
+    static answerSpace($card: JQuery<HTMLElement>) {
+            
+    }
+
 }
