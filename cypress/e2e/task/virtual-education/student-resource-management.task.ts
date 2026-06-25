@@ -37,10 +37,10 @@ export class StudentResourceManagement {
     static validateResponseResource(resource:string) {
         switch (resource) {
                 case 'TAREA AUTOMATIZACION':
-                    TextAssertion.haveText(, 'Respuesta de la tarea')
+                    TextAssertion.haveText(StudentCourseUI.textTask, 'Respuesta de la tarea')
                     break
                 case 'FORO AUTOMATIZACION':
-                    
+                    TextAssertion.haveText(StudentCourseUI.textForum, 'Respuesta del foro')
                     break
                 case 'CUESTIONARIO AUTOMATIZACION':
                     
@@ -51,7 +51,7 @@ export class StudentResourceManagement {
     // METODOS PARA COMPLETAR RECURSOS
 
     private static completeForum() {
-        SharedTask.typeTextAreaResource('Respuesta de la tarea')
+        SharedTask.typeTextAreaResource('Respuesta del foro')
         ClickAction.clickElementByText(StudentCourseUI.btnSendForum, 'Agregar comentario')
     }
 
@@ -94,4 +94,10 @@ export class StudentResourceManagement {
     }
 
     // METODOS PARA VALIDAR LOS RECURSOS COMPLETADOS
+
+    private static endQuestionnaire() {
+        ClickAction.clickElementByText(StudentCourseUI.btnPreguntasCuestionario, 'Revisar')
+        TextAssertion.haveText(StudentCourseUI.btnPreguntasCuestionario, 'Enviar cuestionario')
+        ClickAction.clickElementByText(StudentCourseUI.btnPreguntasCuestionario, 'Enviar cuestionario')
+    }
 }

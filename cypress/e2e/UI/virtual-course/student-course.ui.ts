@@ -7,8 +7,12 @@ export class StudentCourseUI {
     static btnSendTask = '#submit-btn2'
     static btnGoInQuestionnaire = '.div-iniciarCuestionario a'
     static btnStartQuestionnaire = '#inicializar_cuestionario'
-    // Preguntas de cuestionarios
+    // Cuestionarios
     static questionList = '#responder_cuestionario'
     static cardQuestions = '#responder_cuestionario .card-preguntas'
     static questionType = '.card-header .card-span'
+    static btnPreguntasCuestionario = '.button-cambiar-pagina'
+    // Validación de respuestas
+    static textTask = '#divRespuestaEstudiante .edv-description-resource p'
+    static textForum = '#divDetalleForo .edv-description-resource p'
 }
