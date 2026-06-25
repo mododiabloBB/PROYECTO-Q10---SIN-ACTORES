@@ -10,6 +10,6 @@ export class SelectAction {
     dataIdSelect: string,
     opcion: string | number,
   ) {
-    cy.get(`select ${dataIdSelect}`).select(opcion, { force: true });
+    cy.get(`select${dataIdSelect}`).select(opcion, { force: true });
   }
 }

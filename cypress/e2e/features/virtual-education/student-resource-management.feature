@@ -1,6 +1,6 @@
 Feature: Gestión de completitud de recursos como estudiante
 
-    Scenario Outline: Completar recurso
+    Scenario Outline: Completar recurso <recursoPendiente>
         Given El usuario "estudiante" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
         And El usuario ingresar al curso virtual "nameCourseResourceStudent" pulsando sobre este

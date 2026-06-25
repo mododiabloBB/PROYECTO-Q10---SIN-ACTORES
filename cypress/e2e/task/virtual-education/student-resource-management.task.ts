@@ -20,8 +20,8 @@ export class StudentResourceManagement {
         TextAssertion.haveText(SharedUI.titleVirtualCourse, resource)
     }
 
-    static reponseResources(type:string){
-        switch (type) {
+    static reponseResources(resource:string){
+        switch (resource) {
                 case 'TAREA AUTOMATIZACION':
                     this.completeTask()
                     break
@@ -34,6 +34,21 @@ export class StudentResourceManagement {
             }
     }
 
+    static validateResponseResource(resource:string) {
+        switch (resource) {
+                case 'TAREA AUTOMATIZACION':
+                    TextAssertion.haveText(, 'Respuesta de la tarea')
+                    break
+                case 'FORO AUTOMATIZACION':
+                    
+                    break
+                case 'CUESTIONARIO AUTOMATIZACION':
+                    
+                    break
+            }
+    }
+
+    // METODOS PARA COMPLETAR RECURSOS
 
     private static completeForum() {
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
@@ -56,8 +71,8 @@ export class StudentResourceManagement {
     
     private static answerQuestionanaire() {
         this.goInQuestionnaire()
-        // ejecutamos el callback del metodo
-        InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type, index) => {
+        // ejecutamos el callback del metodo el cual retorna el selector HTML de la card de forma iterada
+        InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type) => {
             switch (type) {
                 case 'Única respuesta':
                     answerQuestionsAction.answerSingleChoice($element)
@@ -78,6 +93,5 @@ export class StudentResourceManagement {
         })
     }
 
-
-
+    // METODOS PARA VALIDAR LOS RECURSOS COMPLETADOS
 }

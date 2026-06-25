@@ -14,7 +14,7 @@
         "@questions/*": ["./cypress/e2e/question/*"],
         "@assertion/*": ["./cypress/e2e/assertion/*"],
         "@fixtures/*": ["./cypress/fixtures/*"],
-        "@action/*": ["./cypress/e2e/action/*"],
+        "@action/*": ["./cypress/e2e/action/*"]
       }
   },
   "include": [
