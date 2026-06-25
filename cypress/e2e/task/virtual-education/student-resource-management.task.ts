@@ -20,6 +20,20 @@ export class StudentResourceManagement {
         TextAssertion.haveText(SharedUI.titleVirtualCourse, resource)
     }
 
+    static reponseResources(type:string){
+        switch (type) {
+                case 'TAREA AUTOMATIZACION':
+                    this.completeTask()
+                    break
+                case 'FORO AUTOMATIZACION':
+                    this.completeForum()
+                    break
+                case 'CUESTIONARIO AUTOMATIZACION':
+                    this.answerQuestionanaire()
+                    break
+            }
+    }
+
 
     private static completeForum() {
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
@@ -31,25 +45,7 @@ export class StudentResourceManagement {
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
         ClickAction.clickElementByText(StudentCourseUI.btnSendTask, 'Aceptar')
     }
-
-    private static answerQuestionanaire(questionType: string) {
-        this.goInQuestionnaire()
-        // ejecutamos el callback del metodo
-        InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type, index) => {
-            switch (type) {
-                case 'Única respuesta':
-                    answerQuestionsAction.answerSingleChoice($element)
-                case 'Múltiple respuesta':
-                    answerQuestionsAction.answerMultipleChoices($element)
-                case 'Asociación':
-                    answerQuestionsAction.answerMultipleChoices($element)
-                case 'Rellene los espacios':
-
-                case 'Descriptiva':
-            }
-        })
-    }
-
+    
     private static goInQuestionnaire() {
         //Ingresar al cuestionario
         ClickAction.clickElement(StudentCourseUI.btnGoInQuestionnaire)
@@ -57,5 +53,31 @@ export class StudentResourceManagement {
         ClickAction.clickElement(StudentCourseUI.btnStartQuestionnaire)
         VisibleAssertion.shouldBeVisible(StudentCourseUI.questionList)
     }
+    
+    private static answerQuestionanaire() {
+        this.goInQuestionnaire()
+        // ejecutamos el callback del metodo
+        InteractionVirtualEducationQuestion.interactionElement(StudentCourseUI.cardQuestions, StudentCourseUI.questionType, ($element, type, index) => {
+            switch (type) {
+                case 'Única respuesta':
+                    answerQuestionsAction.answerSingleChoice($element)
+                    break
+                case 'Múltiple respuesta':
+                    answerQuestionsAction.answerMultipleChoices($element)
+                    break
+                case 'Asociación':
+                    answerQuestionsAction.answerAssociation($element)
+                    break
+                case 'Rellene los espacios':
+                    answerQuestionsAction.answerSpace($element)
+                    break
+                case 'Descriptiva':
+                    answerQuestionsAction.answerTextArea($element)
+                    break
+            }
+        })
+    }
+
+
 
 }

@@ -14,8 +14,8 @@ Then('La modificación de la publicidad del curso se realiza de forma correcta',
 
 // Escenario: Estudiante ve curso virtual
 
-Then('El usuario ve el curso virtual publicado', () => {
-    PublicationManagementAssertion.validateCourseStudent()
+Then('El usuario ve el curso virtual {string} publicado', (course:string) => {
+    PublicationManagementAssertion.validateCourseStudent(course)
 })
 
 // Escenario: Administrador despublica el curso virtual

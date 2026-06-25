@@ -3,8 +3,8 @@ Feature: Gestión de publicación de cursos virtuales
     Scenario: Publicar curso virtual
         Given El usuario "administrador" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
-        And El usuario busca el curso virtual "nameCourseResource"
-        And El usuario ingresar al curso virtual "nameCourseResource" pulsando la acción "Ingresar al curso"
+        And El usuario busca el curso virtual "nameCoursePublication"
+        And El usuario ingresar al curso virtual "nameCoursePublication" pulsando la acción "Ingresar al curso"
         And El usuario ingresa a los ajustes del curso virtual
         And El usuario publica el curso virtual
         Then La modificación de la publicidad del curso se realiza de forma correcta
@@ -12,13 +12,13 @@ Feature: Gestión de publicación de cursos virtuales
     Scenario: Ver curso virtual como estudiante
         Given El usuario "estudiante" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
-        Then El usuario ve el curso virtual publicado
+        Then El usuario ve el curso virtual "nameCoursePublication" publicado
 
     Scenario: Despublicar curso virtual
         Given El usuario "administrador" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
-        And El usuario busca el curso virtual "nameCourseResource"
-        And El usuario ingresar al curso virtual "nameCourseResource" pulsando la acción "Ingresar al curso"
+        And El usuario busca el curso virtual "nameCoursePublication"
+        And El usuario ingresar al curso virtual "nameCoursePublication" pulsando la acción "Ingresar al curso"
         And El usuario ingresa a los ajustes del curso virtual
         And El usuario despublica el curso virtual
         Then La modificación de la despublicidad del curso se realiza de forma correcta

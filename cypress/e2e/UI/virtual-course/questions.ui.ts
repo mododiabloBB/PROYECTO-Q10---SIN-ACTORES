@@ -3,4 +3,7 @@ export class QuestionsUI {
     static rowOptions = '.row-preguntas'
     static rowInput = '.row-preguntas input'
     static rowAssociation = '.row-apareamiento'
+    static inputWriteSpace = '.input-sm'
+    static selectSpace = '.control-replace'
+    static textArea = 'cueresperpre_respuesta'
 }

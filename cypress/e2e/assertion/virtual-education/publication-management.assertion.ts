@@ -1,8 +1,9 @@
+import dataCourse from "@fixtures/virtual-education/course-management.json"
 import { AttrVirtualEducationQuestion } from "@questions/virtual-education/attr-virtual-education.question"
 import { AttrQuestion } from '@questions/common/attr.question'
 import { PublicationCourseUI } from "@ui/virtual-course/publication-course.ui"
 import { SharedUI } from "@ui/virtual-course/shared-ui"
-import { VisibleAssertion } from "@assertion/common/visible.assertion"
+import { TextAssertion } from "@assertion/common/text.assertion"
 
 export class PublicationManagementAssertion {
 
@@ -22,7 +23,8 @@ export class PublicationManagementAssertion {
         })
     }
 
-    static validateCourseStudent() {
-        VisibleAssertion.shouldBeVisible(SharedUI.courseVisualitationStudent)
+    static validateCourseStudent(course:string) {
+        //VisibleAssertion.shouldBeVisible(SharedUI.courseVisualitationStudent)
+        TextAssertion.haveText(SharedUI.courseVisualitationStudent, dataCourse[course])
     }
 }
