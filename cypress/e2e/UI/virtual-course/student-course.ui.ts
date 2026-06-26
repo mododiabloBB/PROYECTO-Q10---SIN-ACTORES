@@ -11,7 +11,8 @@ export class StudentCourseUI {
     static questionList = '#responder_cuestionario'
     static cardQuestions = '#responder_cuestionario .card-preguntas'
     static questionType = '.card-header .card-span'
-    static btnPreguntasCuestionario = '.button-cambiar-pagina'
+    static btnQuestionnaireQuestions = '.button-cambiar-pagina'
+    static detailQuestionnaire = 'resultado_cuestionario'
     // Validación de respuestas
     static textTask = '#divRespuestaEstudiante .edv-description-resource p'
     static textForum = '#divDetalleForo .edv-description-resource p'

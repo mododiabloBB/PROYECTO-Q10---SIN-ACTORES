@@ -43,7 +43,8 @@ export class StudentResourceManagement {
                     TextAssertion.haveText(StudentCourseUI.textForum, 'Respuesta del foro')
                     break
                 case 'CUESTIONARIO AUTOMATIZACION':
-                    
+                    this.endQuestionnaire()
+                    VisibleAssertion.shouldBeVisible(StudentCourseUI.detailQuestionnaire)
                     break
             }
     }
@@ -96,8 +97,8 @@ export class StudentResourceManagement {
     // METODOS PARA VALIDAR LOS RECURSOS COMPLETADOS
 
     private static endQuestionnaire() {
-        ClickAction.clickElementByText(StudentCourseUI.btnPreguntasCuestionario, 'Revisar')
-        TextAssertion.haveText(StudentCourseUI.btnPreguntasCuestionario, 'Enviar cuestionario')
-        ClickAction.clickElementByText(StudentCourseUI.btnPreguntasCuestionario, 'Enviar cuestionario')
+        ClickAction.clickElementByText(StudentCourseUI.btnQuestionnaireQuestions, 'Revisar')
+        TextAssertion.haveText(StudentCourseUI.btnQuestionnaireQuestions, 'Enviar cuestionario')
+        ClickAction.clickElementByText(StudentCourseUI.btnQuestionnaireQuestions, 'Enviar cuestionario')
     }
 }
