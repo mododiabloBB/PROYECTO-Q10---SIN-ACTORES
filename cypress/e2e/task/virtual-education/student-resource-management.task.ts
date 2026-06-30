@@ -20,33 +20,70 @@ export class StudentResourceManagement {
         TextAssertion.haveText(SharedUI.titleVirtualCourse, resource)
     }
 
-    static reponseResources(resource:string){
-        switch (resource) {
-                case 'TAREA AUTOMATIZACION':
-                    this.completeTask()
-                    break
-                case 'FORO AUTOMATIZACION':
-                    this.completeForum()
-                    break
-                case 'CUESTIONARIO AUTOMATIZACION':
-                    this.answerQuestionanaire()
-                    break
-            }
+    static goToResourceAnswer(resource: string) {
+        this.goToResource(resource)
+        resource == 'CUESTIONARIO AUTOMATIZACION' && ClickAction.clickElement(StudentCourseUI.pageResponses)
     }
 
-    static validateResponseResource(resource:string) {
+    static reponseResources(resource: string) {
         switch (resource) {
-                case 'TAREA AUTOMATIZACION':
-                    TextAssertion.haveText(StudentCourseUI.textTask, 'Respuesta de la tarea')
-                    break
-                case 'FORO AUTOMATIZACION':
-                    TextAssertion.haveText(StudentCourseUI.textForum, 'Respuesta del foro')
-                    break
-                case 'CUESTIONARIO AUTOMATIZACION':
-                    this.endQuestionnaire()
-                    VisibleAssertion.shouldBeVisible(StudentCourseUI.detailQuestionnaire)
-                    break
-            }
+            case 'TAREA AUTOMATIZACION':
+                this.completeTask()
+                break
+            case 'FORO AUTOMATIZACION':
+                this.completeForum()
+                break
+            case 'CUESTIONARIO AUTOMATIZACION':
+                this.answerQuestionanaire()
+                break
+        }
+    }
+
+    static validateResponseResource(resource: string) {
+        switch (resource) {
+            case 'TAREA AUTOMATIZACION':
+                TextAssertion.haveText(StudentCourseUI.textTask, 'Respuesta de la tarea')
+                break
+            case 'FORO AUTOMATIZACION':
+                TextAssertion.haveText(StudentCourseUI.textForum, 'Respuesta del foro')
+                break
+            case 'CUESTIONARIO AUTOMATIZACION':
+                this.endQuestionnaire()
+                VisibleAssertion.shouldBeVisible(StudentCourseUI.detailQuestionnaire)
+                break
+        }
+    }
+
+    static deleteAnswerResource(resource: string) {
+        switch (resource) {
+            case 'TAREA AUTOMATIZACION':
+                ClickAction.clickElement(StudentCourseUI.actionOptionsTaks)
+                ClickAction.clickElementByText(StudentCourseUI.optionDropdown, 'Eliminar respuesta')
+                ClickAction.clickElement(StudentCourseUI.globalBtn)
+                break
+            case 'FORO AUTOMATIZACION':
+                ClickAction.clickElement(StudentCourseUI.actionDeleteAnswerForum)
+                ClickAction.clickElement(StudentCourseUI.globalBtn)
+                break
+            case 'CUESTIONARIO AUTOMATIZACION':
+                ClickAction.clickElement(StudentCourseUI.actionDeleteAnswerQuestions)
+                ClickAction.clickElement(StudentCourseUI.globalBtn)
+                break
+        }
+    }
+
+    static validateResponseDelete(resource: string) {
+        switch (resource) {
+            case 'TAREA AUTOMATIZACION':
+                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionOptionsTaks)
+                break
+            case 'FORO AUTOMATIZACION':
+                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionDeleteAnswerForum)
+                break
+            case 'CUESTIONARIO AUTOMATIZACION':
+                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionDeleteAnswerQuestions)
+                break
+        }
     }
 
     // METODOS PARA COMPLETAR RECURSOS
@@ -61,7 +98,7 @@ export class StudentResourceManagement {
         SharedTask.typeTextAreaResource('Respuesta de la tarea')
         ClickAction.clickElementByText(StudentCourseUI.btnSendTask, 'Aceptar')
     }
-    
+
     private static goInQuestionnaire() {
         //Ingresar al cuestionario
         ClickAction.clickElement(StudentCourseUI.btnGoInQuestionnaire)
@@ -69,7 +106,7 @@ export class StudentResourceManagement {
         ClickAction.clickElement(StudentCourseUI.btnStartQuestionnaire)
         VisibleAssertion.shouldBeVisible(StudentCourseUI.questionList)
     }
-    
+
     private static answerQuestionanaire() {
         this.goInQuestionnaire()
         // ejecutamos el callback del metodo el cual retorna el selector HTML de la card de forma iterada
