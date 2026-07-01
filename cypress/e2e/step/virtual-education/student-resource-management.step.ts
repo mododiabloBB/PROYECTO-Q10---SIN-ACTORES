@@ -19,16 +19,17 @@ Then('La respuesta del usuario se guarda correctamente y el recurso se marca com
 
 // ELIMINAR RESPUESTA
 
-When('El usuario ingresar a la respuesta del recurso {string}', (recursoRespuesta: string) => {
-    StudentResourceManagement.goToResourceAnswer(recursoRespuesta)
+When('El usuario ingresar a la respuesta del recurso {string}', function(recurso: string) {
+    this.resourceResponse = recurso
+    StudentResourceManagement.goToResourceAnswer(recurso)
 })
 
 When('El usuario elimina la respuesta del recurso', function () {
-    const resource = this.nameResource
+    const resource = this.resourceResponse
     StudentResourceManagement.deleteAnswerResource(resource)
 })
 
 Then('La respuesta se elimina del recurso', function() {
-    const resource = this.nameResource
+    const resource = this.resourceResponse
     StudentResourceManagement.validateResponseDelete(resource)
 })

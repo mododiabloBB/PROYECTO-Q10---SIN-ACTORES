@@ -15,8 +15,7 @@ Feature: Gestión de completitud de recursos como estudiante
             | FORO AUTOMATIZACION         |
             | CUESTIONARIO AUTOMATIZACION |
 
-
-    Scenario Outline: Eliminar respuestas recurso <recursoPendiente>
+    Scenario Outline: Eliminar respuestas recurso <recursoPendiente> como estudiante
         Given El usuario "<usuarioSesion>" ha iniciado sesión
         When El usuario navega a la página de "Cursos virtuales"
         And El usuario ingresar al curso virtual "nameCourseResourceStudent" pulsando sobre este
@@ -29,4 +28,12 @@ Feature: Gestión de completitud de recursos como estudiante
             | usuarioSesion | recursoPendiente            |
             | estudiante    | TAREA AUTOMATIZACION        |
             | estudiante    | FORO AUTOMATIZACION         |
-            | administrador | CUESTIONARIO AUTOMATIZACION |
+
+    Scenario: Eliminar respuesta de cuestionario administrador
+        Given El usuario "administrador" ha iniciado sesión
+        When El usuario navega a la página de "Cursos virtuales"
+        And El usuario busca el curso virtual "nameCourseResourceStudent"
+        And El usuario ingresar al curso virtual "nameCourseResourceStudent" pulsando la acción "Ingresar al curso"
+        And El usuario ingresar a la respuesta del recurso "CUESTIONARIO AUTOMATIZACION"
+        And El usuario elimina la respuesta del recurso
+        Then La respuesta se elimina del recurso

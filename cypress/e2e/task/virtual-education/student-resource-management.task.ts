@@ -1,16 +1,20 @@
 import dataCourse from "@fixtures/virtual-education/course-management.json"
 import { SharedUI } from "@ui/virtual-course/shared-ui"
+import { AlertUI } from "@ui/common/alert.ui"
 import { StudentCourseUI } from '@ui/virtual-course/student-course.ui'
 import { ClickAction } from '@action/common/click.action'
+import { SelectAction } from '@action/common/select.action'
 import { answerQuestionsAction } from '@action/virtual-education/answer-questions.action'
 import { SharedTask } from "@task/virtual-education/shared.task"
 import { VisibleAssertion } from '@assertion/common/visible.assertion'
 import { TextAssertion } from '@assertion/common/text.assertion'
+import { ExistAssertion } from '@assertion/common/exist.assetion'
 import { InteractionVirtualEducationQuestion } from '@questions/virtual-education/interaction-virtual-education.questions'
 
 export class StudentResourceManagement {
 
     static goInCourse(course: string) {
+        SelectAction.seleccionarOpcionSelectByID(StudentCourseUI.selectCourseType, 'Todos')
         ClickAction.clickElementByText(SharedUI.courseVisualitationStudent, dataCourse[course])
         VisibleAssertion.shouldBeVisible(SharedUI.titleVirtualCourse)
     }
@@ -62,7 +66,7 @@ export class StudentResourceManagement {
                 ClickAction.clickElement(StudentCourseUI.globalBtn)
                 break
             case 'FORO AUTOMATIZACION':
-                ClickAction.clickElement(StudentCourseUI.actionDeleteAnswerForum)
+                ClickAction.clickElementByText(StudentCourseUI.actionDeleteAnswerForum, 'Eliminar')
                 ClickAction.clickElement(StudentCourseUI.globalBtn)
                 break
             case 'CUESTIONARIO AUTOMATIZACION':
@@ -75,13 +79,13 @@ export class StudentResourceManagement {
     static validateResponseDelete(resource: string) {
         switch (resource) {
             case 'TAREA AUTOMATIZACION':
-                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionOptionsTaks)
+                ExistAssertion.elementNotExist(StudentCourseUI.actionOptionsTaks)
                 break
             case 'FORO AUTOMATIZACION':
-                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionDeleteAnswerForum)
+                ExistAssertion.elementNotExist(StudentCourseUI.actionDeleteAnswerForum)
                 break
             case 'CUESTIONARIO AUTOMATIZACION':
-                VisibleAssertion.shouldNotBeVisible(StudentCourseUI.actionDeleteAnswerQuestions)
+                VisibleAssertion.shouldBeVisible(AlertUI.alertSuccess)
                 break
         }
     }

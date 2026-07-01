@@ -1,9 +1,11 @@
 export class StudentCourseUI {
+    // Select de cursos estudiante
+    static selectCourseType = 'estadoCurso'
     // Lista de recursos de menú lateral de estudiante
     static resourceList = '#edv-div-recursos a'
     // Botones para completar tareas, foros y cuestionarios
     static btnTaskComplete = '#btnCrearRespuesta'
-    static globalBtn = 'submit-btn'
+    static globalBtn = '#submit-btn'
     static btnSendForum = '#submit-btn1'
     static btnSendTask = '#submit-btn2'
     static btnGoInQuestionnaire = '.div-iniciarCuestionario a'
