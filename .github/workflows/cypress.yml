@@ -9,24 +9,16 @@ jobs:
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
       matrix:
-        containers: [1, 2, 3, 4, 5] # Uses 5 parallel instances (1 por feature)
+        containers: [1, 2, 3, 4] # Uses 2 parallel instances
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm # Cachea node_modules entre runs para acelerar el pipeline
-
       - name: Cypress run
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v7
         with:
           record: true
           parallel: true # Runs test in parallel using settings above
-          group: virtual-education # Agrupa esta corrida para el balanceo en Cypress Cloud
         env:
           # For recording and parallelization you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
