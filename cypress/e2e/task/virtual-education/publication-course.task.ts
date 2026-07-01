@@ -8,8 +8,6 @@ import { TextAssertion } from "@assertion/common/text.assertion"
 import { ClickAction } from "@action/common/click.action"
 import { AttrQuestion } from "@questions/common/attr.question"
 
-
-
 export class PublicationCourseTask {
 
     static goToSettings() {
